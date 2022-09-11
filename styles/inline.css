@@ -1,0 +1,12 @@
+.as-banner-image.as-banner-image--top {
+  background-image: url("/content/dam/edam/applecare/images/en_US/psp/psp-banner-hero-repair.image.large_2x.jpg");
+}
+.as-banner-image.as-banner-image--top:before {
+  content: "";
+  display: block;
+}
+@media only screen and (max-width: 735px) {
+  .as-banner-image.as-banner-image--top {
+    background-image: url("/content/dam/edam/applecare/images/en_US/psp/psp-banner-hero-repair.image.small_2x.jpg");
+  }
+}

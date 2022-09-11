@@ -1,0 +1,18 @@
+.heroImage .hero-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 83.33333%
+}
+
+@media only screen and (max-width:1068px) {
+    .heroImage .hero-image {
+        max-width: 83.33333%;
+        height: auto
+    }
+}
+
+@media only screen and (max-width:735px) {
+    .heroImage .hero-image {
+        max-width: 84%
+    }
+}
