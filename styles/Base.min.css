@@ -20954,7 +20954,7 @@ html.no-js .section-toggletabs .ac-gallery-content {
   height: 36px;
   background-size: 14px 36px;
   background-repeat: no-repeat;
-  /* background-image: url("commons/ac-assets/ac-toolkit/images/svg/icon_large.svg"); */
+  background-image: url("/icon_large.svg");
   height: 18px;
   display: block;
   position: relative;
