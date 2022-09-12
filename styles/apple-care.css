@@ -43,6 +43,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+.section-support {
+    text-align: center;
+}
+
 .section-content {
   margin-left: auto;
   margin-right: auto;

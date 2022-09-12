@@ -7145,9 +7145,9 @@ html {
   color: #0070c9;
   text-decoration: none;
 }
-.main > *:last-child {
+/* .main > *:last-child {
   padding-bottom: 74px;
-}
+} */
 .as-ln-content {
   width: 980px;
   margin: 0 auto;

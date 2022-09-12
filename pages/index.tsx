@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -8,6 +9,8 @@ import pspBannerHeroLarge from '/images/psp-banner-hero-repair.image.large_2x.jp
 import pspBannerHeroSmall from '/images/psp-banner-hero-repair.image.small_2x.jpg'
 
 const Home: NextPage = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,9 +20,9 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="ac-gn-current-support">
-        <aside id="ac-gn-segmentbar" className="ac-gn-segmentbar" lang="en-US" dir="ltr" ></aside>
+        <aside id="ac-gn-segmentbar" className="ac-gn-segmentbar" lang="en-US" dir="rtl" ></aside>
         <input type="checkbox" id="ac-gn-menustate" className="ac-gn-menustate" />
-        <nav id="ac-globalnav" className="js no-touch windows no-firefox" role="navigation" lang="en-US" dir="ltr" >
+        <nav id="ac-globalnav" className="js no-touch windows no-firefox" role="navigation" lang="en-US" dir="rtl" >
           <div className="ac-gn-content">
             <ul className="ac-gn-header">
               <li className="ac-gn-item ac-gn-menuicon">
@@ -76,66 +79,51 @@ const Home: NextPage = () => {
             </div>
             <ul className="ac-gn-list">
               <li className="ac-gn-item ac-gn-apple">
-                <a className="ac-gn-link ac-gn-link-apple" href="https://www.apple.com" data-analytics-title="apple home" id="ac-gn-firstfocus">
-                  <span className="ac-gn-link-text">Apple</span>
-                </a>
-              </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-store">
-                <a className="ac-gn-link ac-gn-link-store" href="https://www.apple.com/us/store" data-analytics-title="store">
-                  <span className="ac-gn-link-text">Store</span>
+                <a className="ac-gn-link ac-gn-link-apple" href="/" data-analytics-title="apple home" id="ac-gn-firstfocus">
+                  <span className="ac-gn-link-text">اپل</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-mac">
-                <a className="ac-gn-link ac-gn-link-mac" href="https://www.apple.com/mac/" data-analytics-title="mac">
-                  <span className="ac-gn-link-text">Mac</span>
+                <a className="ac-gn-link ac-gn-link-mac" href="#" data-analytics-title="mac">
+                  <span className="ac-gn-link-text">مک بوک</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-ipad">
-                <a className="ac-gn-link ac-gn-link-ipad" href="https://www.apple.com/ipad/" data-analytics-title="ipad">
-                  <span className="ac-gn-link-text">iPad</span>
+                <a className="ac-gn-link ac-gn-link-ipad" href="#" data-analytics-title="ipad">
+                  <span className="ac-gn-link-text">آیپد</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-iphone">
-                <a className="ac-gn-link ac-gn-link-iphone" href="https://www.apple.com/iphone/" data-analytics-title="iphone">
-                  <span className="ac-gn-link-text">iPhone</span>
+                <a className="ac-gn-link ac-gn-link-iphone" href="#" data-analytics-title="iphone">
+                  <span className="ac-gn-link-text">آیفون</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-watch">
-                <a className="ac-gn-link ac-gn-link-watch" href="https://www.apple.com/watch/" data-analytics-title="watch">
-                  <span className="ac-gn-link-text">Watch</span>
+                <a className="ac-gn-link ac-gn-link-watch" href="#" data-analytics-title="watch">
+                  <span className="ac-gn-link-text">اپل واچ</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-airpods">
-                <a className="ac-gn-link ac-gn-link-airpods" href="https://www.apple.com/airpods/" data-analytics-title="airpods">
-                  <span className="ac-gn-link-text">AirPods</span>
-                </a>
-              </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-tvhome">
-                <a className="ac-gn-link ac-gn-link-tvhome" href="https://www.apple.com/tv-home/" data-analytics-title="tv and home">
-                  <span className="ac-gn-link-text">TV &amp; Home</span>
-                </a>
-              </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-onlyonapple">
-                <a className="ac-gn-link ac-gn-link-onlyonapple" href="https://www.apple.com/services/" data-analytics-title="only on apple">
-                  <span className="ac-gn-link-text">Only on Apple</span>
+                <a className="ac-gn-link ac-gn-link-airpods" href="#" data-analytics-title="airpods">
+                  <span className="ac-gn-link-text">ایرپاد</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-accessories">
-                <a className="ac-gn-link ac-gn-link-accessories" href="https://www.apple.com/us/shop/goto/buy_accessories" data-analytics-title="accessories">
-                  <span className="ac-gn-link-text">Accessories</span>
+                <a className="ac-gn-link ac-gn-link-accessories" href="https://iranapplestore.com">
+                  <span className="ac-gn-link-text">فروشگاه</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-support">
-                <a className="ac-gn-link ac-gn-link-support" href="/" data-analytics-title="support">
-                  <span className="ac-gn-link-text">Support</span>
+                <a className="ac-gn-link ac-gn-link-support" href="/order">
+                  <span className="ac-gn-link-text">ثبت سفارش</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
                 <a id="ac-gn-link-search" className="ac-gn-link ac-gn-link-search" href="/kb/index?page=search&amp;locale=en_US" data-analytics-title="search" data-analytics-intrapage-link="" aria-label="Search Support" role="button" aria-haspopup="true" data-analytics-listener-added="true"></a>
               </li>
-              <li className="ac-gn-item ac-gn-bag" id="ac-gn-bag">
+              <li className="ac-gn-item ac-gn-bag" id="ac-gn-bag" onClick={() => { setShowMenu(!showMenu) }}>
                 <div className="ac-gn-bag-wrapper">
-                  <a className="ac-gn-link ac-gn-link-bag" href="https://www.apple.com/us/shop/goto/bag" data-analytics-title="bag" data-analytics-click="bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count : {%BAGITEMCOUNT%}" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="ac-gn-bagview-content">
+                  <a className="ac-gn-link ac-gn-link-bag" href="#" data-analytics-title="bag" data-analytics-click="bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count : {%BAGITEMCOUNT%}" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="ac-gn-bagview-content">
                     <span className="ac-gn-link-text">Shopping Bag</span>
                   </a>
                   <span className="ac-gn-bag-badge" aria-hidden="true" data-analytics-title="bag" data-analytics-click="bag">
@@ -147,7 +135,7 @@ const Home: NextPage = () => {
                 <span className="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
               </li>
             </ul>
-            <aside id="ac-gn-searchview" className="ac-gn-searchview" role="search" data-analytics-region="search" >
+            {/* <aside id="ac-gn-searchview" className="ac-gn-searchview" role="search" data-analytics-region="search" >
               <div className="ac-gn-searchview-content">
                 <div className="ac-gn-searchview-bar">
                   <div className="ac-gn-searchview-bar-wrapper">
@@ -203,12 +191,44 @@ const Home: NextPage = () => {
                   <span className="ac-gn-searchview-close-right"></span>
                 </span>
               </button>
-            </aside>
-            <aside className="ac-gn-bagview" data-analytics-region="bag">
+            </aside> */}
+            <aside className="ac-gn-bagview" style={{ display: showMenu ? 'block' : 'none' }}>
               <div className="ac-gn-bagview-scrim">
                 <span className="ac-gn-bagview-caret ac-gn-bagview-caret-small"></span>
               </div>
               <div className="ac-gn-bagview-content" id="ac-gn-bagview-content">
+                <p className="ac-gn-bagview-message ac-gn-bagview-message-empty">
+                  سلام رامین سرمدی
+                </p>
+                <nav className="ac-gn-bagview-nav">
+                  <ul className="ac-gn-bagview-nav-list ac-gn-bagview-nav-nobtn">
+                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-bag">
+                      <a href="https://www.apple.com/shop/bag" data-evar1="[pageName] | global nav | bag" data-analytics-activitymap-link-id="bag" data-analytics-title="bag" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-bag" data-ac-autom="gn-bagview-link-bag">
+                        Bag
+                      </a>
+                    </li>
+                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-savedbyyou">
+                      <a href="https://www.apple.com/shop/saveditems" data-evar1="[pageName] | global nav | saved items" data-analytics-activitymap-link-id="saved items" data-analytics-title="saved items" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-savedbyyou" data-ac-autom="gn-bagview-link-savedbyyou">
+                        Saved Items
+                      </a>
+                    </li>
+                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-orders">
+                      <a href="https://secure5.store.apple.com/shop/order/list" data-evar1="[pageName] | global nav | orders" data-analytics-activitymap-link-id="orders" data-analytics-title="orders" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders" data-ac-autom="gn-bagview-link-orders">
+                        Orders
+                      </a>
+                    </li>
+                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-account">
+                      <a href="https://secure5.store.apple.com/shop/account/home" data-evar1="[pageName] | global nav | account" data-analytics-activitymap-link-id="account" data-analytics-title="account" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-account" data-ac-autom="gn-bagview-link-account">
+                        Account
+                      </a>
+                    </li>
+                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-signIn">
+                      <a href="https://secure5.store.apple.com/shop/signIn?ssi=1AAABgzPMS30gCofz6OGsoodUmxpSx0LGDrVoYM7mjYSMP5tb3PyMavoAAABCaHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS9yZXBhaXJ8aHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS9yZXBhaXJ8AAIBxrEL8xr3hdrHwbWmrDV3edp6OPkMQArdd4UevXrdHfg" data-evar1="[pageName] | global nav | signIn" data-analytics-activitymap-link-id="signIn" data-analytics-title="signIn" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-signIn" data-ac-autom="gn-bagview-link-signIn">
+                        Sign in
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </aside>
           </div>
@@ -332,26 +352,28 @@ const Home: NextPage = () => {
             </div>
           </section>
 
-          <div className="section-content snipcss-eDtom">
-            <div className="row heading-row">
-              <div className="column large-12 small-12">
-                <h2 className="typography-headline snip-h2">Additional Support</h2>
+          <section className="section section-support" data-analytics-section-engagement="name:additional-support">
+            <div className="section-content snipcss-eDtom">
+              <div className="row heading-row">
+                <div className="column large-12 small-12">
+                  <h2 className="typography-headline snip-h2">Additional Support</h2>
+                </div>
+              </div>
+              <div className="row">
+                <div className="column large-6 small-12 chat-support">
+                  <figure className="image-chat-support-icon"></figure>
+                  <h2 className="headline typography-support-headline snip-h2">Get support now by&nbsp;phone&nbsp;or&nbsp;chat,<br />set up a repair, and more.</h2>
+                  <p className="snip-p">Call Apple&nbsp;Support at 1‑800‑APLCARE.</p>
+                  <a href="https://getsupport.apple.com/" data-analytics-title="contact apple support" data-analytics-exit-link="" className="icon-wrapper snip-a"><span className="icon-copy">Contact Apple&nbsp;Support</span><span className="icon icon-after more"></span></a>
+                </div>
+                <div className="column large-6 small-12 support-app">
+                  <figure className="image-support-app-icon"></figure>
+                  <h2 className="headline typography-support-headline snip-h2">Get support for all of your<br />Apple devices in one app.</h2>
+                  <a href="https://itunes.apple.com/us/app/apple-support/id1130498044?mt=8" data-analytics-title="get the apple support app" data-analytics-exit-link="" className="icon-wrapper snip-a"><span className="icon-copy">Get the Apple&nbsp;Support app</span><span className="icon icon-after more"></span></a>
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="column large-6 small-12 chat-support">
-                <figure className="image-chat-support-icon"></figure>
-                <h2 className="headline typography-support-headline snip-h2">Get support now by&nbsp;phone&nbsp;or&nbsp;chat,<br />set up a repair, and more.</h2>
-                <p className="snip-p">Call Apple&nbsp;Support at 1‑800‑APLCARE.</p>
-                <a href="https://getsupport.apple.com/" data-analytics-title="contact apple support" data-analytics-exit-link="" className="icon-wrapper snip-a"><span className="icon-copy">Contact Apple&nbsp;Support</span><span className="icon icon-after more"></span></a>
-              </div>
-              <div className="column large-6 small-12 support-app">
-                <figure className="image-support-app-icon"></figure>
-                <h2 className="headline typography-support-headline snip-h2">Get support for all of your<br />Apple devices in one app.</h2>
-                <a href="https://itunes.apple.com/us/app/apple-support/id1130498044?mt=8" data-analytics-title="get the apple support app" data-analytics-exit-link="" className="icon-wrapper snip-a"><span className="icon-copy">Get the Apple&nbsp;Support app</span><span className="icon icon-after more"></span></a>
-              </div>
-            </div>
-          </div>
+          </section>
 
 
         </div>
