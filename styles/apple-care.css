@@ -44,14 +44,14 @@ html {
 }
 
 .section-support {
-    text-align: center;
+  text-align: center;
 }
 
-.section-content {
+/* .section-content {
   margin-left: auto;
   margin-right: auto;
   width: 980px;
-}
+} */
 
 @media only screen and (min-width: 1442px) {
   .section-content {
@@ -169,11 +169,11 @@ p {
   margin: 0;
 }
 
-.section-content {
+/* .section-content {
   margin-left: auto;
   margin-right: auto;
   width: 980px;
-}
+} */
 
 @media only screen and (min-width: 1442px) {
   .section-content {
@@ -369,4 +369,24 @@ a.icon-wrapper:hover .icon-copy {
 .icon-before:before,
 .icon-wrapper .more:after {
   display: inline;
+}
+
+@media only screen and (max-width: 735px) {
+  .typography-headline-elevated {
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+      sans-serif;
+  }
+  .section-hero .image-hero-lockup {
+    width: 282px;
+    height: 140px;
+    background-size: 282px 140px;
+    background-repeat: no-repeat;
+    background-image: url("/landing_hero__ezvhxoasvo2u_small.png");
+    left: 50%;
+    margin-left: -141px;
+  }
 }

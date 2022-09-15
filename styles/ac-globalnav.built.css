@@ -190,13 +190,13 @@ h3 #ac-gn-segmentbar sup {
   vertical-align: sub;
   line-height: 1;
 }
-#ac-globalnav :focus,
+/* #ac-globalnav :focus,
 #ac-globalnav * :focus,
 #ac-gn-segmentbar :focus,
 #ac-gn-segmentbar * :focus {
   outline: 4px solid rgba(0, 125, 250, 0.6);
   outline-offset: 1px;
-}
+} */
 #ac-globalnav
   :focus[data-focus-method="mouse"]:not(input):not(textarea):not(select),
 #ac-globalnav
@@ -281,7 +281,7 @@ h3 #ac-gn-segmentbar sup {
 }
 @media only screen and (max-width: 833px) {
   #ac-globalnav {
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     max-height: none;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -548,6 +548,7 @@ h3 #ac-gn-segmentbar sup {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  direction: rtl;
 }
 @media only screen and (max-width: 833px) {
   #ac-globalnav .ac-gn-list {
@@ -1326,6 +1327,8 @@ h3 #ac-gn-segmentbar sup {
     padding: 0;
     width: auto;
     max-width: none;
+    padding: 12px 0;
+    text-align: center;
   }
 }
 #ac-globalnav .ac-gn-link-apple {
@@ -2078,12 +2081,17 @@ h3 #ac-gn-segmentbar sup {
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.1, 0.3, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.3, 1);
 }
-#ac-globalnav .ac-gn-bagview {
-  margin-right: -115px;
-  right: 0;
-  position: absolute;
-  top: 48px;
-  z-index: 1;
+  #ac-globalnav .ac-gn-bagview {
+    /* margin-left: -115px; */
+    left: 0;
+    position: absolute;
+    top: 48px;
+    z-index: 1;
+  }
+@media only screen and (min-width: 1024px) {
+  #ac-globalnav .ac-gn-bagview {
+    margin-left: -115px;
+  }
 }
 #ac-globalnav.with-bag-count .ac-gn-bagview {
   right: 3px;
@@ -2427,6 +2435,7 @@ h3 #ac-gn-segmentbar sup {
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: -0.016em;
+  text-align: right;
 }
 #ac-globalnav .ac-gn-bagview-nav-link:hover {
   text-decoration: underline;
@@ -2451,21 +2460,21 @@ h3 #ac-gn-segmentbar sup {
 #ac-globalnav .ac-gn-bagview-nav-link-orders {
 /*   background-image: url("../assets/ac-store/orders */
   background-image: none, url("../images/orders.svg");
-  background-position: -2px 11px;
+  background-position: right 11px;
   background-repeat: no-repeat;
   background-size: 21px 21px;
 }
 #ac-globalnav .ac-gn-bagview-nav-link-account {
 /*   background-image: url("../assets/ac-store/account */
   background-image: none, url("../images/account.svg");
-  background-position: -2px 11px;
+  background-position: right 11px;
   background-repeat: no-repeat;
   background-size: 21px 21px;
 }
 #ac-globalnav .ac-gn-bagview-nav-link-signIn {
 /*   background-image: url("../assets/ac-store/signIn */
   background-image: none, url("../images/signIn.svg");
-  background-position: -2px 11px;
+  background-position: right 11px;
   background-repeat: no-repeat;
   background-size: 21px 21px;
 }

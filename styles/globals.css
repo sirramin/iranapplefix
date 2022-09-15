@@ -1,9 +1,18 @@
+@font-face {
+  font-family: "iranyekan";
+  src: url("../font/IRANYekanWebRegular.woff");
+  /* src: url("../font/YekanRegular.ttf"); */
+
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+  /* font-family: "iranyekan" !important; */
+
 }
 
 a {
@@ -28,3 +37,9 @@ a {
 /* .ac-gn-list .ac-gn-bag:hover + .ac-gn-bagview {
   display: block !important;
 } */
+
+
+
+a, span, h1, h2, h3, h4, h5, h6, p, button {
+  font-family: "iranyekan" !important;
+}

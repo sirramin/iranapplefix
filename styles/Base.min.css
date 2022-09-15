@@ -91,11 +91,11 @@ button {
 button:disabled {
   cursor: default;
 }
-:focus {
+/* :focus {
   outline: 3px solid #c1e0fe;
   outline: 3px solid rgba(131, 192, 253, 0.5);
   outline-offset: 1px;
-}
+} */
 :focus[data-focus-method="mouse"]:not(input):not(textarea):not(select),
 :focus[data-focus-method="touch"]:not(input):not(textarea):not(select) {
   outline: 0;
@@ -7215,10 +7215,10 @@ a .sosumi {
     width: 90%;
   }
 }
-:focus {
+/* :focus {
   outline: 4px solid rgba(0, 125, 250, 0.6);
   outline-offset: 1px;
-}
+} */
 .form-dropdown:focus {
   border-color: #0071e3;
   outline: 0;
@@ -16397,7 +16397,7 @@ a > .as-imagegrid-item-title:lang(zh-TW) {
   font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif;
   max-width: 692px;
-  max-width: 43.25rem;
+  max-width: 38.25rem;
 }
 .pageTitle-intro:lang(ar) {
   font-family: "SF Pro AR", "SF Pro Gulf", "SF Pro Display", "SF Pro Icons",
@@ -21683,4 +21683,16 @@ html.no-js .section-toggletabs .ac-gallery-content {
 #ac-globalfooter .ac-gf-footer-shop a,
 #ac-globalfooter .ac-gf-footer-shop a:hover {
   color: #0070c9;
+}
+
+@media only screen and (max-width: 833px) {
+  .section-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 87.5%;
+  }
+
+  .showCarret {
+    display: block !important;
+  }
 }

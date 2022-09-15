@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -10,6 +10,21 @@ import pspBannerHeroSmall from '/images/psp-banner-hero-repair.image.small_2x.jp
 
 const Home: NextPage = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const ref = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent): void {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setShowMenu(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showMenu]);
 
   return (
     <div className={styles.container}>
@@ -42,14 +57,15 @@ const Home: NextPage = () => {
                 </label>
               </li>
               <li className="ac-gn-item ac-gn-apple">
-                <a className="ac-gn-link ac-gn-link-apple" href="https://www.apple.com" data-analytics-title="apple home" id="ac-gn-firstfocus-small">
-                  <span className="ac-gn-link-text">Apple</span>
+                <a className="ac-gn-link ac-gn-link-apple" id="ac-gn-firstfocus-small">
+                  {/* <span>اپل</span> */}
                 </a>
               </li>
-              <li className="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small">
+              <li className="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small" onClick={() => { setShowMenu(!showMenu) }}>
                 <div className="ac-gn-bag-wrapper">
-                  <a className="ac-gn-link ac-gn-link-bag" href="https://www.apple.com/us/shop/goto/bag" data-analytics-title="bag" data-analytics-click="bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count :" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="ac-gn-bagview-content">
-                    <span className="ac-gn-link-text">Shopping Bag</span>
+                  <a className="ac-gn-link ac-gn-link-bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count :" role="button"
+                    aria-haspopup="true" aria-expanded="false" aria-controls="ac-gn-bagview-content">
+                    {/* <span>سبد خرید</span> */}
                   </a>
                   <span className="ac-gn-bag-badge" aria-hidden="true" data-analytics-title="bag" data-analytics-click="bag">
                     <span className="ac-gn-bag-badge-separator"></span>
@@ -60,7 +76,7 @@ const Home: NextPage = () => {
                 <span className="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
               </li>
             </ul>
-            <div className="ac-gn-search-placeholder-container" role="search">
+            {/* <div className="ac-gn-search-placeholder-container" role="search">
               <div className="ac-gn-search ac-gn-search-small">
                 <a id="ac-gn-link-search-small" className="ac-gn-link" href="/kb/index?page=search&amp;locale=en_US" data-analytics-title="search" data-analytics-intrapage-link="" aria-label="Search Support" role="button" aria-haspopup="true">
                   <div className="ac-gn-search-placeholder-bar">
@@ -71,56 +87,52 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                     <div className="ac-gn-searchview-close ac-gn-searchview-close-small ac-gn-search-placeholder-searchview-close">
-                      <span className="ac-gn-searchview-close-cancel" aria-hidden="true">Cancel</span>
+                      <span className="ac-gn-searchview-close-cancel" aria-hidden="true">لغو</span>
                     </div>
                   </div>
                 </a>
               </div>
-            </div>
+            </div> */}
             <ul className="ac-gn-list">
               <li className="ac-gn-item ac-gn-apple">
                 <a className="ac-gn-link ac-gn-link-apple" href="/" data-analytics-title="apple home" id="ac-gn-firstfocus">
-                  <span className="ac-gn-link-text">اپل</span>
-                </a>
-              </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-mac">
-                <a className="ac-gn-link ac-gn-link-mac" href="#" data-analytics-title="mac">
-                  <span className="ac-gn-link-text">مک بوک</span>
-                </a>
-              </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-ipad">
-                <a className="ac-gn-link ac-gn-link-ipad" href="#" data-analytics-title="ipad">
-                  <span className="ac-gn-link-text">آیپد</span>
+                  {/* <span>اپل</span> */}
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-iphone">
-                <a className="ac-gn-link ac-gn-link-iphone" href="#" data-analytics-title="iphone">
-                  <span className="ac-gn-link-text">آیفون</span>
+                <a className="ac-gn-link" href="#" data-analytics-title="iphone">
+                  <span>آیفون</span>
                 </a>
               </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-watch">
-                <a className="ac-gn-link ac-gn-link-watch" href="#" data-analytics-title="watch">
-                  <span className="ac-gn-link-text">اپل واچ</span>
+              <li className="ac-gn-item ac-gn-item-menu ac-gn-ipad">
+                <a className="ac-gn-link" href="#" data-analytics-title="ipad">
+                  <span>آی‌مک</span>
                 </a>
               </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-airpods">
-                <a className="ac-gn-link ac-gn-link-airpods" href="#" data-analytics-title="airpods">
-                  <span className="ac-gn-link-text">ایرپاد</span>
-                </a>
-              </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-accessories">
-                <a className="ac-gn-link ac-gn-link-accessories" href="https://iranapplestore.com">
-                  <span className="ac-gn-link-text">فروشگاه</span>
+              <li className="ac-gn-item ac-gn-item-menu ac-gn-mac">
+                <a className="ac-gn-link" href="#" data-analytics-title="mac">
+                  <span>مک‌بوک</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-support">
-                <a className="ac-gn-link ac-gn-link-support" href="/order">
-                  <span className="ac-gn-link-text">ثبت سفارش</span>
+                <a className="ac-gn-link" href="/order">
+                  <span>درخواست تعمیر</span>
                 </a>
               </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
-                <a id="ac-gn-link-search" className="ac-gn-link ac-gn-link-search" href="/kb/index?page=search&amp;locale=en_US" data-analytics-title="search" data-analytics-intrapage-link="" aria-label="Search Support" role="button" aria-haspopup="true" data-analytics-listener-added="true"></a>
+              <li className="ac-gn-item ac-gn-item-menu ac-gn-accessories">
+                <a className="ac-gn-link" href="https://iranapplestore.com">
+                  <span>فروشگاه</span>
+                </a>
               </li>
+
+              <li className="ac-gn-item ac-gn-item-menu ac-gn-watch">
+                <a className="ac-gn-link" href="#" data-analytics-title="watch">
+                  <span>وبلاگ</span>
+                </a>
+              </li>
+              {/* <li className="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+                <a id="ac-gn-link-search" className="ac-gn-link ac-gn-link-search" href="/kb/index?page=search&amp;locale=en_US" data-analytics-title="search" data-analytics-intrapage-link="" aria-label="Search Support" role="button" aria-haspopup="true" data-analytics-listener-added="true"></a>
+              </li> */}
               <li className="ac-gn-item ac-gn-bag" id="ac-gn-bag" onClick={() => { setShowMenu(!showMenu) }}>
                 <div className="ac-gn-bag-wrapper">
                   <a className="ac-gn-link ac-gn-link-bag" href="#" data-analytics-title="bag" data-analytics-click="bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count : {%BAGITEMCOUNT%}" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="ac-gn-bagview-content">
@@ -132,7 +144,7 @@ const Home: NextPage = () => {
                     <span className="ac-gn-bag-badge-unit">+</span>
                   </span>
                 </div>
-                <span className="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
+                <span className="ac-gn-bagview-caret ac-gn-bagview-caret-large" style={{ display: showMenu ? 'block' : 'none' }}></span>
               </li>
             </ul>
             {/* <aside id="ac-gn-searchview" className="ac-gn-searchview" role="search" data-analytics-region="search" >
@@ -192,17 +204,21 @@ const Home: NextPage = () => {
                 </span>
               </button>
             </aside> */}
-            <aside className="ac-gn-bagview" style={{ display: showMenu ? 'block' : 'none' }}>
+            <aside ref={ref} className="ac-gn-bagview" style={{ display: showMenu ? 'block' : 'none' }}>
               <div className="ac-gn-bagview-scrim">
-                <span className="ac-gn-bagview-caret ac-gn-bagview-caret-small"></span>
+                <span
+                  className={`ac-gn-bagview-caret ac-gn-bagview-caret-small ${showMenu ? 'showCarret' : ''}`}
+                ></span>
               </div>
               <div className="ac-gn-bagview-content" id="ac-gn-bagview-content">
                 <p className="ac-gn-bagview-message ac-gn-bagview-message-empty">
-                  سلام رامین سرمدی
+                  <span>سلام، </span>
+                  <span>مهمان گرامی</span>
+
                 </p>
                 <nav className="ac-gn-bagview-nav">
                   <ul className="ac-gn-bagview-nav-list ac-gn-bagview-nav-nobtn">
-                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-bag">
+                    {/* <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-bag">
                       <a href="https://www.apple.com/shop/bag" data-evar1="[pageName] | global nav | bag" data-analytics-activitymap-link-id="bag" data-analytics-title="bag" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-bag" data-ac-autom="gn-bagview-link-bag">
                         Bag
                       </a>
@@ -211,20 +227,20 @@ const Home: NextPage = () => {
                       <a href="https://www.apple.com/shop/saveditems" data-evar1="[pageName] | global nav | saved items" data-analytics-activitymap-link-id="saved items" data-analytics-title="saved items" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-savedbyyou" data-ac-autom="gn-bagview-link-savedbyyou">
                         Saved Items
                       </a>
-                    </li>
+                    </li> */}
                     <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-orders">
                       <a href="https://secure5.store.apple.com/shop/order/list" data-evar1="[pageName] | global nav | orders" data-analytics-activitymap-link-id="orders" data-analytics-title="orders" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders" data-ac-autom="gn-bagview-link-orders">
-                        Orders
+                        سفارش‌ها
                       </a>
                     </li>
                     <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-account">
                       <a href="https://secure5.store.apple.com/shop/account/home" data-evar1="[pageName] | global nav | account" data-analytics-activitymap-link-id="account" data-analytics-title="account" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-account" data-ac-autom="gn-bagview-link-account">
-                        Account
+                        حساب
                       </a>
                     </li>
                     <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-signIn">
                       <a href="https://secure5.store.apple.com/shop/signIn?ssi=1AAABgzPMS30gCofz6OGsoodUmxpSx0LGDrVoYM7mjYSMP5tb3PyMavoAAABCaHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS9yZXBhaXJ8aHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS9yZXBhaXJ8AAIBxrEL8xr3hdrHwbWmrDV3edp6OPkMQArdd4UevXrdHfg" data-evar1="[pageName] | global nav | signIn" data-analytics-activitymap-link-id="signIn" data-analytics-title="signIn" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-signIn" data-ac-autom="gn-bagview-link-signIn">
-                        Sign in
+                        ورود / ثبت نام
                       </a>
                     </li>
                   </ul>
@@ -258,7 +274,11 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section><div className="pageTitle  ">
-            <h1 className="pageTitle-heading">Apple Repair</h1><p className="pageTitle-intro">We’re here to help. Apple-certified repairs are performed by trusted experts who use genuine Apple parts. Only Apple-certified repairs are backed by Apple. Whichever option you choose, you’ll get your product back working exactly the way it should.</p></div>
+            <h1 className="pageTitle-heading">تعمیرات اپل</h1>
+            <p className="pageTitle-intro">
+              ما برای کمک به شما اینجا هستیم. تعمیرات ما توسط کارشناسان تایید شده انجام می‌شوند که از قطعات اصلی اپل استفاده می‌کنند. هر روشی را که برای تعمیر دستگاه خود انتخاب کنید، دستگاه شما مانند روز اول کار خواهد کرد
+                </p>
+          </div>
           <div className="contentLink contentBlock ">
             <div className="u-layout u-layout--3up">
               <div className="u-layout-item">
@@ -266,7 +286,7 @@ const Home: NextPage = () => {
                   <img src="/content-link-send-your-product_2x.png"
                     alt="" width="150" className="contentLink-image" height="150" />
                   <div className="contentLink-block">
-                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Send your product to Apple">Send your product to Apple</h3><div className="richText">
+                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Send your product to Apple">ارسال دستگاه به دفتر ما</h3><div className="richText">
                       <div className="table-responsive">
                         <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block"><p>Online or over the phone, we'll arrange shipment for your product to an Apple Repair Center — all on your schedule and without an appointment. This service is available for most Apple products.</p></div></div>
                     </div>
@@ -277,7 +297,7 @@ const Home: NextPage = () => {
                 <div className="contentLink-item">
                   <img src={authorizedService.src} alt="" width="150"
                     className="contentLink-image" height="150" /><div className="contentLink-block">
-                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Find an Apple Authorized Service Provider">Find an Apple Authorized Service Provider</h3><div className="richText">
+                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Find an Apple Authorized Service Provider">تعمیر دستگاه در محل شما</h3><div className="richText">
                       <div className="table-responsive">
                         <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block"><p>Our network of Apple Authorized Service Providers give you lots of convenient locations for Apple repairs. In some areas, you can even schedule a technician to&nbsp;perform an iPhone screen repair at your home or office.</p></div></div>
                     </div>
@@ -287,7 +307,7 @@ const Home: NextPage = () => {
               <div className="u-layout-item">
                 <div className="contentLink-item">
                   <img src="/content-link-genius-store_2x.png" alt="" width="150" className="contentLink-image" height="150" /><div className="contentLink-block">
-                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Visit a Genius at an Apple Store">Visit a Genius at an Apple Store</h3><div className="richText">
+                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Visit a Genius at an Apple Store">مراجعه حضوری به کارشناسان ما</h3><div className="richText">
                       <div className="table-responsive">
                         <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block"><p>You can do more than shop and learn in an Apple Store. Start a repair request below to make a reservation with a Genius to get help with a hardware repair.</p></div></div>
                     </div>
