@@ -26,6 +26,7 @@ const Home: NextPage = () => {
     };
   }, [showMenu]);
 
+  const whatsappText = 'سلام برای تعمیرات از سایت ایران اپل فیکس پیام میدم'
   return (
     <div className={styles.container}>
       <Head>
@@ -276,8 +277,8 @@ const Home: NextPage = () => {
           </section><div className="pageTitle  ">
             <h1 className="pageTitle-heading">تعمیرات اپل</h1>
             <p className="pageTitle-intro">
-              ما برای کمک به شما اینجا هستیم. تعمیرات ما توسط کارشناسان تایید شده انجام می‌شوند که از قطعات اصلی اپل استفاده می‌کنند. هر روشی را که برای تعمیر دستگاه خود انتخاب کنید، دستگاه شما مانند روز اول کار خواهد کرد
-                </p>
+              ما برای کمک به شما اینجا هستیم. تعمیرات ما توسط کارشناسان تایید شده انجام می‌شوند که از قطعات اصلی اپل استفاده می‌کنند. هر روشی را که برای تعمیر دستگاه خود انتخاب کنید، دستگاه شما مانند روز اول کار خواهد کرد.
+            </p>
           </div>
           <div className="contentLink contentBlock ">
             <div className="u-layout u-layout--3up">
@@ -288,28 +289,34 @@ const Home: NextPage = () => {
                   <div className="contentLink-block">
                     <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Send your product to Apple">ارسال دستگاه به دفتر ما</h3><div className="richText">
                       <div className="table-responsive">
-                        <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block"><p>Online or over the phone, we'll arrange shipment for your product to an Apple Repair Center — all on your schedule and without an appointment. This service is available for most Apple products.</p></div></div>
+                        <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block">
+                          <p>پس از ثبت درخواست و هماهنگی با شما پیک ما برای دریافت دستگاه شما اعزام می‌شود</p>
+                        </div></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="u-layout-item">
                 <div className="contentLink-item">
-                  <img src={authorizedService.src} alt="" width="150"
+                  <img src="/content-link-genius-store_2x.png" alt="" width="150"
                     className="contentLink-image" height="150" /><div className="contentLink-block">
-                    <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Find an Apple Authorized Service Provider">تعمیر دستگاه در محل شما</h3><div className="richText">
+                    <h3 className="contentLink-title" >تعمیر دستگاه در محل شما</h3><div className="richText">
                       <div className="table-responsive">
-                        <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block"><p>Our network of Apple Authorized Service Providers give you lots of convenient locations for Apple repairs. In some areas, you can even schedule a technician to&nbsp;perform an iPhone screen repair at your home or office.</p></div></div>
+                        <div className="contentLink-copy">
+                          <p>با ثبت درخواست خود کارشناسان ما در اسرع وقت به محل شما مراجعه کرده و مشکل دستگاه شما را برطرف می‌کنند</p>
+                        </div></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="u-layout-item">
                 <div className="contentLink-item">
-                  <img src="/content-link-genius-store_2x.png" alt="" width="150" className="contentLink-image" height="150" /><div className="contentLink-block">
+                  <img src={authorizedService.src}  alt="" width="150" className="contentLink-image" height="150" /><div className="contentLink-block">
                     <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Visit a Genius at an Apple Store">مراجعه حضوری به کارشناسان ما</h3><div className="richText">
                       <div className="table-responsive">
-                        <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block"><p>You can do more than shop and learn in an Apple Store. Start a repair request below to make a reservation with a Genius to get help with a hardware repair.</p></div></div>
+                        <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block">
+                          <p>در فروشگاه‌های ما علاوه بر امکان خرید حضوری می‌توانید برای حل مشکلات نرم‌افزاری و سخت‌افزاری خود مراجعه کنید</p>
+                        </div></div>
                     </div>
                   </div>
                 </div>
@@ -318,12 +325,13 @@ const Home: NextPage = () => {
           </div>
           <div className="as-navLink-wrapper as-navLink--button as-navLink--light">
             <div className="as-navLink-inner ">
-              <a className="as-navLink button" data-analytics-event="link.component_click" data-analytics-link-component_name="Start a repair request" data-analytics-link-url="https://getsupport.apple.com/?caller=psp&amp;PRKEYS=" href="https://getsupport.apple.com/?caller=psp&amp;PRKEYS=">Start a repair request</a></div>
+              <a className="as-navLink button" href="/order">ثبت درخواست تعمیر</a></div>
           </div>
           <div className="as-navLink-wrapper as-navLink--icon">
             <div className="as-navLink-inner ">
-              <a className="as-navLink " href="/en-us/my-support" data-analytics-event="link.component_click" data-analytics-link-component_name="Track the status of an existing repair" data-analytics-link-url="/en-us/my-support">
-                <span className="as-navlink-text">Track the status of an existing repair</span><span className="icon icon-chevronright" aria-hidden="true"></span>
+              <a className="as-navLink " href="/orders" >
+                <span className="icon icon-chevronright" aria-hidden="true"></span>
+                <span className="as-navlink-text">مشاهده وضعیت سفارش</span>
               </a>
             </div>
           </div>
@@ -364,9 +372,12 @@ const Home: NextPage = () => {
             <div className="section-content">
               <div className="row lockupMiddle">
                 <div className="column large-12 large-centered small-12">
-                  <h1 className="typography-headline-elevated large-10 large-centered small-12">Service and support from the people who know&nbsp;your Apple&nbsp;products best.</h1>
+                  <h1 className="typography-headline-elevated large-10 large-centered small-12">
+                    خدمات و پشتیبانی از افرادی که محصولات اپل شما را به خوبی می شناسند.
+
+                  </h1>
                   <figure className="image-hero-lockup"></figure>
-                  <p className="typography-intro-elevated">Because Apple makes the hardware, the operating system, and many applications, Apple products are truly integrated systems. And only AppleCare products give you one-stop service and support from Apple experts, so most issues can be resolved in a single call.</p>
+                  {/* <p className="typography-intro-elevated">Because Apple makes the hardware, the operating system, and many applications, Apple products are truly integrated systems. And only AppleCare products give you one-stop service and support from Apple experts, so most issues can be resolved in a single call.</p> */}
                 </div>
               </div>
             </div>
@@ -376,20 +387,31 @@ const Home: NextPage = () => {
             <div className="section-content snipcss-eDtom">
               <div className="row heading-row">
                 <div className="column large-12 small-12">
-                  <h2 className="typography-headline snip-h2">Additional Support</h2>
+                  <h2 className="typography-headline snip-h2">راه‌های تماس با ما</h2>
                 </div>
               </div>
               <div className="row">
                 <div className="column large-6 small-12 chat-support">
                   <figure className="image-chat-support-icon"></figure>
-                  <h2 className="headline typography-support-headline snip-h2">Get support now by&nbsp;phone&nbsp;or&nbsp;chat,<br />set up a repair, and more.</h2>
-                  <p className="snip-p">Call Apple&nbsp;Support at 1‑800‑APLCARE.</p>
-                  <a href="https://getsupport.apple.com/" data-analytics-title="contact apple support" data-analytics-exit-link="" className="icon-wrapper snip-a"><span className="icon-copy">Contact Apple&nbsp;Support</span><span className="icon icon-after more"></span></a>
+                  <h2 className="headline typography-support-headline snip-h2">
+                    پشتیبانی از طریق چت</h2>
+                  {/* <p className="snip-p">Call Apple&nbsp;Support at 1‑800‑APLCARE.</p> */}
+                  <a href={`https://api.whatsapp.com/send/?phone=9809961022975&text=${whatsappText}&type=phone_number&app_absent=0`}
+                    className="icon-wrapper snip-a">
+                    <span className="icon icon-after more"></span>
+                    <span className="icon-copy">رفتن به چت واتساپ</span>
+                  </a>
                 </div>
                 <div className="column large-6 small-12 support-app">
                   <figure className="image-support-app-icon"></figure>
-                  <h2 className="headline typography-support-headline snip-h2">Get support for all of your<br />Apple devices in one app.</h2>
-                  <a href="https://itunes.apple.com/us/app/apple-support/id1130498044?mt=8" data-analytics-title="get the apple support app" data-analytics-exit-link="" className="icon-wrapper snip-a"><span className="icon-copy">Get the Apple&nbsp;Support app</span><span className="icon icon-after more"></span></a>
+                  <h2 className="headline typography-support-headline snip-h2">
+                    تماس تلفنی با واحد خدمات
+                  </h2>
+                  <a href="tel:02166172575"
+                    className="icon-wrapper snip-a">
+                    <span className="icon icon-after more"></span>
+                    <span className="icon-copy">برقراری تماس</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -397,7 +419,7 @@ const Home: NextPage = () => {
 
 
         </div>
-        <footer id="ac-globalfooter" className="js no-touch svg no-ie7 no-ie8" lang="en-US" data-analytics-region="global footer" role="contentinfo" aria-labelledby="ac-gf-label">
+        {/* <footer id="ac-globalfooter" className="js no-touch svg no-ie7 no-ie8" lang="en-US" data-analytics-region="global footer" role="contentinfo" aria-labelledby="ac-gf-label">
           <div className="ac-gf-content">
             <h2 className="ac-gf-label" id="ac-gf-label">Apple Footer</h2>
             <nav className="ac-gf-breadcrumbs" aria-label="Breadcrumbs" role="navigation">
@@ -518,7 +540,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </section></div>
-        </footer>
+        </footer> */}
         {/* 
                 <div className="snipcss-modal snipcss-micromodal-slide" id="modal-pick-resolution"></div>
                 <div className="edge_builder edge_builder_top" style={{top: 586px; left: 351px; height: 0px; width: 0px;}}></div>
