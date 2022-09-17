@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 import authorizedService from '/images/content-link-authorized-provider_2x.png'
 import pspBannerHeroLarge from '/images/psp-banner-hero-repair.image.large_2x.jpg'
 import pspBannerHeroSmall from '/images/psp-banner-hero-repair.image.small_2x.jpg'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -96,9 +97,9 @@ const Home: NextPage = () => {
             </div> */}
             <ul className="ac-gn-list">
               <li className="ac-gn-item ac-gn-apple">
-                <a className="ac-gn-link ac-gn-link-apple" href="/" data-analytics-title="apple home" id="ac-gn-firstfocus">
-                  {/* <span>اپل</span> */}
-                </a>
+                <Link href="/" >
+                  <a className="ac-gn-link ac-gn-link-apple" id="ac-gn-firstfocus"></a>
+                </Link>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-iphone">
                 <a className="ac-gn-link" href="#" data-analytics-title="iphone">
@@ -311,7 +312,7 @@ const Home: NextPage = () => {
               </div>
               <div className="u-layout-item">
                 <div className="contentLink-item">
-                  <img src={authorizedService.src}  alt="" width="150" className="contentLink-image" height="150" /><div className="contentLink-block">
+                  <img src={authorizedService.src} alt="" width="150" className="contentLink-image" height="150" /><div className="contentLink-block">
                     <h3 className="contentLink-title" data-analytics-link-component_type="Content Block" data-analytics-link-component_name="Visit a Genius at an Apple Store">مراجعه حضوری به کارشناسان ما</h3><div className="richText">
                       <div className="table-responsive">
                         <div className="contentLink-copy" data-analytics-event="link.click" data-analytics-link-component_type="Content Block">
