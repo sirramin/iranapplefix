@@ -1,14 +1,17 @@
 @font-face {
   font-family: "iranyekan";
   src: url("../font/IRANYekanWebRegular.woff");
-  /* src: url("../font/YekanRegular.ttf"); */
 }
 
 @font-face {
   font-family: "SF Pro Icons";
   src: url("../font/SFProIcons_regular.woff");
-  /* src: url("../font/YekanRegular.ttf"); */
 }
+
+/* @font-face {
+  font-family: "SF Pro Display";
+  src: url("../font/sf-pro-display_regular.woff2");
+} */
 
 html,
 body {
