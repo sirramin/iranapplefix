@@ -4,110 +4,88 @@ import { useRouter } from 'next/router'
 import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
+import { useSelector, useDispatch } from 'react-redux'
 import { login, logout } from '../store/slices/authSlice'
-dispatch(login({
-  mobile: router.query.mobile,
-  token,
-}))
+
 
 const Home: NextPage = () => {
 
-  const [mobile, setMobile] = useState('');
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const selectDevice = (type: string) => {
-
+    dispatch(login({
+      deviceType: type,
+    }))
+    router.push({ pathname: '/models' });
   };
 
   return (
     <Layout title="ثبت سفارش">
-      <div className="signed-product-selector snipcss-o5Wlo">
-        <div className="content-area">
-          <div className="signed-product-selector-wrapper">
-            <div className="signed-product-selector-header">
-              {/* <h1 className="product-selector-heading">
-                <span>
-                  What do you need help with?
-                </span>
-              </h1> */}
-              {/* <p className="signed-product-selector-sub-heading">
-                <span>
-                  You aren’t signed in to any devices as
-                  <b>
-                    sirramin@live.com
-                  </b>
-                  .
-                  <a href="https://support.apple.com/HT205064#add" className="more" aria-label="Learn more about apple support" >
-                    Learn More
-                  </a>
-                </span>
-              </p> */}
-            </div>
-            {/* <div className="serial-number-section" data-testid="serial-number-section">
-              <span>
-                Device not shown?
-              </span>
-              &nbsp;
-              <button className="link icon icon-after  icon-chevrondown" data-testid="open-serial-number-field">
-                <span>
-                  Enter a serial number
-                </span>
-              </button>
-            </div> */}
-            <div className="signed-product generic-products-services">
-              <h2 className="device-heading">
-                <span>
-                  انتخاب دستگاه‌
-                </span>
-              </h2>
-              <div className="row">
-                <ul role="list" className="row" id="allproducts">
-                  <li role="listitem" className="form-selector column large-6 medium-6 small-12">
-                    <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods" id="PFC7000" data-testid="signed-more-product-card">
-                      <label className="form-selector-label" htmlFor="PFC7000" id="label_PFC7000">
-                        <span className="row details-container">
-                          <span className="form-selector-left-col" onClick={selectDevice('iphone')}>
-                            <img className="device-image" width="42" height="42"
-                              src="/iphone.png" alt="" aria-hidden="true" />
-                            <span className="form-selector-title">
-                              iPhone
+      <div className="core-layout__viewport">
+        <div className="signed-product-selector snipcss-o5Wlo">
+          <div className="content-area">
+            <div className="signed-product-selector-wrapper">
+              <div className="signed-product generic-products-services">
+                <h2 className="device-heading">
+                  <span>
+                    انتخاب دستگاه‌
+                  </span>
+                </h2>
+                <div className="row">
+                  <ul role="list" className="row" id="allproducts">
+                    <li role="listitem" className="form-selector column large-6 medium-6 small-12"
+                      onClick={() => { selectDevice('iphone') }}
+                    >
+                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods" id="PFC7000" data-testid="signed-more-product-card">
+                        <label className="form-selector-label" htmlFor="PFC7000" id="label_PFC7000">
+                          <span className="row details-container">
+                            <span className="form-selector-left-col"                           >
+                              <img className="device-image" width="42" height="42"
+                                src="/iphone.png" alt="" aria-hidden="true" />
+                              <span className="form-selector-title">
+                                iPhone
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </label>
-                    </button>
-                  </li>
-                  <li role="listitem" className="form-selector column large-6 medium-6 small-12">
-                    <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirTag" id="PGF33001" data-testid="signed-more-product-card">
-                      <label className="form-selector-label" htmlFor="PGF33001" id="label_PGF33001">
-                        <span className="row details-container">
-                          <span className="form-selector-left-col">
-                            <img className="device-image" width="42" height="42"
-                              src="/imac.jfif" alt="" aria-hidden="true" />
-                            <span className="form-selector-title">
-                              iMac
+                        </label>
+                      </button>
+                    </li>
+                    <li role="listitem" className="form-selector column large-6 medium-6 small-12"
+                      onClick={() => { selectDevice('imac') }}
+                    >
+                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirTag" id="PGF33001" data-testid="signed-more-product-card">
+                        <label className="form-selector-label" htmlFor="PGF33001" id="label_PGF33001">
+                          <span className="row details-container">
+                            <span className="form-selector-left-col">
+                              <img className="device-image" width="42" height="42"
+                                src="/imac.jfif" alt="" aria-hidden="true" />
+                              <span className="form-selector-title">
+                                iMac
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </label>
-                    </button>
-                  </li>
-                  <li role="listitem" className="form-selector column large-6 medium-6 small-12">
-                    <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="App Store" id="PGF63003" data-testid="signed-more-product-card">
-                      <label className="form-selector-label" htmlFor="PGF63003" id="label_PGF63003">
-                        <span className="row details-container">
-                          <span className="form-selector-left-col">
-                            <img className="device-image" width="42" height="42"
-                              src="/mac.png" alt="" aria-hidden="true" />
-                            <span className="form-selector-title">
-                              MacBook
+                        </label>
+                      </button>
+                    </li>
+                    <li role="listitem" className="form-selector column large-6 medium-6 small-12"
+                      onClick={() => { selectDevice('macbook') }}
+                    >
+                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="App Store" id="PGF63003" data-testid="signed-more-product-card">
+                        <label className="form-selector-label" htmlFor="PGF63003" id="label_PGF63003">
+                          <span className="row details-container">
+                            <span className="form-selector-left-col">
+                              <img className="device-image" width="42" height="42"
+                                src="/mac.png" alt="" aria-hidden="true" />
+                              <span className="form-selector-title">
+                                MacBook
+                              </span>
                             </span>
                           </span>
-                        </span>
-                      </label>
-                    </button>
-                  </li>
-                  {/* <li role="listitem" className="form-selector column large-6 medium-6 small-12">
+                        </label>
+                      </button>
+                    </li>
+                    {/* <li role="listitem" className="form-selector column large-6 medium-6 small-12">
                     <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="Apple Arcade" id="PGF63007" data-testid="signed-more-product-card">
                       <label className="form-selector-label" htmlFor="PGF63007" id="label_PGF63007">
                         <span className="row details-container">
@@ -149,7 +127,7 @@ const Home: NextPage = () => {
                       </label>
                     </button>
                   </li> */}
-                  {/* <div id="more-products-drawer" aria-hidden="true" className="row less-products">
+                    {/* <div id="more-products-drawer" aria-hidden="true" className="row less-products">
                     <li role="listitem" className="form-selector column large-6 medium-6 small-12">
                       <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="Apple ID" id="PGF63005" data-testid="signed-more-product-card">
                         <label className="form-selector-label" htmlFor="PGF63005" id="label_PGF63005">
@@ -473,20 +451,20 @@ const Home: NextPage = () => {
                       </button>
                     </li>
                   </div> */}
-                </ul>
-              </div>
-              {/* <div className="more-products-link">
+                  </ul>
+                </div>
+                {/* <div className="more-products-link">
                 <button aria-expanded="false" aria-label="Show all Generic Devices and Services" className="link icon icon-after icon-chevrondown show-more" data-testid="more-generic-products-link">
                   <span>
                     Show all
                   </span>
                 </button>
               </div> */}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </Layout>
   )
 }

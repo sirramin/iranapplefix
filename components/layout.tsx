@@ -221,8 +221,9 @@ export default function Layout({ children, title }: Props) {
                       <span>سلام، </span>
                       <span>مهمان گرامی</span>
                     </span>
-
-                    : <span>{mobile}</span>}
+                    : 
+                    <span>{mobile}</span>
+                    }
                 </p>
                 <nav className="ac-gn-bagview-nav">
                   <ul className="ac-gn-bagview-nav-list ac-gn-bagview-nav-nobtn">

@@ -10,7 +10,9 @@ import '../styles/apple-care.css'
 // import '../styles/main.built.css'
 // import '../styles/login.css'
 import '../styles/app.css'
-import '../styles/device.css'
+// import '../styles/device.css'
+import '../styles/order.css'
+
 
 import { Provider } from 'react-redux'
 import store, { persistor } from '../store/store'

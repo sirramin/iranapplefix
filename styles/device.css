@@ -651,4 +651,10 @@ li {
     font-weight: 600;
 } 
 
+span.row.details-container {
+    justify-content: flex-start;
+}
 
+.problem-text {
+    justify-content: end !important ;
+}
