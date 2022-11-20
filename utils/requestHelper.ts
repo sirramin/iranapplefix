@@ -1,5 +1,7 @@
 import axios, { AxiosPromise, AxiosResponse } from "axios";
 import store from "../store/store";
+import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 const BaseURL = "https://api.iranapplefix.com/api/v1";
 
@@ -10,14 +12,13 @@ const requestHelper = async (
   headers: object | null = null,
   params: object | null = null
 ) => {
-  // const {
-  //   auth: { token },
-  //   // loadingReducer: { showLoader },
-  // } = store.getState();
+  // const { token } = useSelector((state) => state.auth);
+  const {
+    auth: { token },
+    // loadingReducer: { showLoader },
+  } = store.getState();
+  console.log("token", token);
 
-  const token = ""; //TODO
-
-  // console.log('showLoader', showLoader);
   try {
     // store.dispatch({
     //   type: "SHOW_LOADER",
@@ -36,9 +37,6 @@ const requestHelper = async (
       timeout: 8000,
       params,
     });
-    // store.dispatch({
-    //   type: "HIDE_LOADER",
-    // });
     return result;
   } catch (err) {
     // console.log("request helper error", err?.response?.data?.error);

@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
+import { useSelector, useDispatch } from 'react-redux'
+import { login, logout } from '../store/slices/authSlice'
 
 type Props = {
   children?: ReactNode
@@ -13,8 +15,14 @@ type Props = {
 export default function Layout({ children, title }: Props) {
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
-  const { isAuthenticated, mobile } = useAppSelector(state => state.auth)
+  const { isAuthenticated, mobile, token } = useAppSelector(state => state.auth)
+  console.log("token", token);
+  console.log("isAuthenticated", isAuthenticated);
+  const dispatch = useDispatch()
 
+  const logOut = () => {
+    dispatch(logout())
+  }
   useEffect(() => {
     function handleClickOutside(event: MouseEvent): void {
       if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -221,9 +229,9 @@ export default function Layout({ children, title }: Props) {
                       <span>سلام، </span>
                       <span>مهمان گرامی</span>
                     </span>
-                    : 
+                    :
                     <span>{mobile}</span>
-                    }
+                  }
                 </p>
                 <nav className="ac-gn-bagview-nav">
                   <ul className="ac-gn-bagview-nav-list ac-gn-bagview-nav-nobtn">
@@ -254,11 +262,11 @@ export default function Layout({ children, title }: Props) {
                             ورود / ثبت نام
                           </a>
                         </Link>
-                        : <Link href="/logout">
-                          <a href="" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-signIn">
-                            خروج
-                          </a>
-                        </Link>}
+                        :
+                        <a onClick={() => { logOut() }} href="" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-signIn">
+                          خروج
+                        </a>
+                      }
                     </li>
                   </ul>
                 </nav>

@@ -11,7 +11,6 @@ const Home: NextPage = () => {
   const [verificationCode, setVerificationCode] = useState('');
   const router = useRouter()
 
-  // const count = useSelector(state => state.counter.value)
   const dispatch = useDispatch()
 
   const submit = async (event: React.SyntheticEvent) => {
@@ -26,12 +25,6 @@ const Home: NextPage = () => {
         token,
       }))
       router.push('/')
-      // if (comeFromAddService) {
-      //   goesToAddService(false);
-      //   navigation.navigate("خانه", { screen: "AddService" });
-      // } else {
-      //   navigation.navigate("profile");
-      // }
     } catch (err) { }
   };
 

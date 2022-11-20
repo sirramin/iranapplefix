@@ -5,8 +5,8 @@ import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
-import { login, logout } from '../store/slices/authSlice'
 import { useAppSelector } from '../store/hooks'
+import { updateProblem } from '../store/slices/orderSlice'
 
 
 const Home: NextPage = () => {
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   const { isAuthenticated, firstname, lastname } = useAppSelector(state => state.auth)
 
   const selectProblem = (problem: string) => {
-    dispatch(login({
+    dispatch(updateProblem({
       problem,
     }))
     if (!isAuthenticated) {
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     } else if (!firstname || !lastname) {
       router.push({ pathname: '/personalInfo', query: { previous: 'problem' } });
     } else {
-      router.push({ pathname: '/delivery' });
+      router.push({ pathname: '/solution' });
     }
   };
 

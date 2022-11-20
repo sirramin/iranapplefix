@@ -5,7 +5,7 @@ import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
-import { login, logout } from '../store/slices/authSlice'
+import { updateDeviceType } from '../store/slices/orderSlice'
 
 
 const Home: NextPage = () => {
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const dispatch = useDispatch()
 
   const selectDevice = (type: string) => {
-    dispatch(login({
+    dispatch(updateDeviceType({
       deviceType: type,
     }))
     router.push({ pathname: '/models' });
@@ -41,11 +41,12 @@ const Home: NextPage = () => {
                         <label className="form-selector-label" htmlFor="PFC7000" id="label_PFC7000">
                           <span className="row details-container">
                             <span className="form-selector-left-col"                           >
-                              <img className="device-image" width="42" height="42"
-                                src="/iphone.png" alt="" aria-hidden="true" />
+                          
                               <span className="form-selector-title">
                                 iPhone
                               </span>
+                              <img className="device-image" width="42" height="42"
+                                src="/iphone.png" alt="" aria-hidden="true" />
                             </span>
                           </span>
                         </label>
@@ -58,11 +59,11 @@ const Home: NextPage = () => {
                         <label className="form-selector-label" htmlFor="PGF33001" id="label_PGF33001">
                           <span className="row details-container">
                             <span className="form-selector-left-col">
-                              <img className="device-image" width="42" height="42"
-                                src="/imac.jfif" alt="" aria-hidden="true" />
                               <span className="form-selector-title">
                                 iMac
                               </span>
+                              <img className="device-image" width="42" height="42"
+                                src="/imac.jfif" alt="" aria-hidden="true" />
                             </span>
                           </span>
                         </label>
@@ -75,11 +76,11 @@ const Home: NextPage = () => {
                         <label className="form-selector-label" htmlFor="PGF63003" id="label_PGF63003">
                           <span className="row details-container">
                             <span className="form-selector-left-col">
-                              <img className="device-image" width="42" height="42"
-                                src="/mac.png" alt="" aria-hidden="true" />
                               <span className="form-selector-title">
                                 MacBook
                               </span>
+                              <img className="device-image" width="42" height="42"
+                                src="/mac.png" alt="" aria-hidden="true" />
                             </span>
                           </span>
                         </label>

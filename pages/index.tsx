@@ -12,6 +12,7 @@ import { login, logout } from '../store/slices/authSlice'
 const Home: NextPage = () => {  
   const whatsappText = 'سلام برای تعمیرات از سایت ایران اپل فیکس پیام میدم';
   // const { token } = useAppSelector(state => state.auth)
+  // console.log("token", token);
 
   return (
     <Layout title="تعمیرات تخصصی محصولات اپل">
@@ -85,7 +86,7 @@ const Home: NextPage = () => {
           </div>
           <div className="as-navLink-wrapper as-navLink--button as-navLink--light">
             <div className="as-navLink-inner ">
-              <a className="as-navLink button" href="/order">ثبت درخواست تعمیر</a></div>
+              <a className="as-navLink button" href="/device">ثبت درخواست تعمیر</a></div>
           </div>
           <div className="as-navLink-wrapper as-navLink--icon">
             <div className="as-navLink-inner ">

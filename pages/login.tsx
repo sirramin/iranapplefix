@@ -58,7 +58,7 @@ const Home: NextPage = () => {
                       <div className="si-field-container container">
                         <div className="form-table">
                           <div className="account-name form-row    ">
-                            <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label>
+                            {/* <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label> */}
                             <div className="form-cell">
                               <div className=" form-cell-wrapper ">
                                 <input type="number"

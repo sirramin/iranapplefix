@@ -5,7 +5,7 @@ import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
-import { login, logout } from '../store/slices/authSlice'
+import { updateModel } from '../store/slices/orderSlice'
 
 
 const Home: NextPage = () => {
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const dispatch = useDispatch()
 
   const selectModel = (model: string) => {
-    dispatch(login({
+    dispatch(updateModel({
       model,
     }))
     router.push({ pathname: '/problem' });

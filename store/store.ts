@@ -13,9 +13,11 @@ import {
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
 import authSlice from "./slices/authSlice";
+import orderSlice from "./slices/orderSlice";
 
 const reducers = combineReducers({
   auth: authSlice,
+  order: orderSlice,
 });
 
 const persistConfig = {
@@ -23,6 +25,7 @@ const persistConfig = {
   version: 1,
   storage,
 };
+
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
