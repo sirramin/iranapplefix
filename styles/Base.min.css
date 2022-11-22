@@ -21631,6 +21631,10 @@ html.no-js .section-toggletabs .ac-gallery-content {
   font-size: 11px;
   font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons",
     "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    min-height: 200px;
+    padding: 10px 30px;
+    text-align: right;
+    margin-top: 50px;
 }
 #ac-globalfooter .ac-gf-footer {
   color: #888;
@@ -21699,4 +21703,9 @@ html.no-js .section-toggletabs .ac-gallery-content {
 
 .u-layout.u-layout--3up {
     text-align: right;
+}
+
+h2.phone-contact {
+    margin-top: 4px !important;
+    font-size: 14px !important;
 }

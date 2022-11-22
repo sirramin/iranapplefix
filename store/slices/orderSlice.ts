@@ -6,6 +6,7 @@ interface OrderState {
   model: string;
   problem: string;
   solution: string;
+  previous: string;
 }
 
 const initialState: OrderState = {
@@ -13,6 +14,7 @@ const initialState: OrderState = {
   model: "",
   problem: "",
   solution: "",
+  previous: "",
 };
 
 export const orderSlice = createSlice({
@@ -31,10 +33,18 @@ export const orderSlice = createSlice({
     updateSolution: (state, action: PayloadAction<any>) => {
       state.solution = action.payload.solution;
     },
+    updatePrevious: (state, action: PayloadAction<any>) => {
+      state.previous = action.payload.previous;
+    },
   },
 });
 
-export const { updateDeviceType, updateModel, updateProblem, updateSolution } =
-  orderSlice.actions;
+export const {
+  updateDeviceType,
+  updateModel,
+  updateProblem,
+  updateSolution,
+  updatePrevious,
+} = orderSlice.actions;
 export const selectOrder = (state: RootState) => state.order;
 export default orderSlice.reducer;

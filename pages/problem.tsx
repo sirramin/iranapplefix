@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
 import { useAppSelector } from '../store/hooks'
-import { updateProblem } from '../store/slices/orderSlice'
+import { updateProblem, updatePrevious } from '../store/slices/orderSlice'
 
 
 const Home: NextPage = () => {
@@ -20,9 +20,15 @@ const Home: NextPage = () => {
       problem,
     }))
     if (!isAuthenticated) {
+      dispatch(updatePrevious({
+        previous: 'problem',
+      }))
       router.push({ pathname: '/login' });
     } else if (!firstname || !lastname) {
-      router.push({ pathname: '/personalInfo', query: { previous: 'problem' } });
+      dispatch(updatePrevious({
+        previous: 'problem',
+      }))
+      router.push({ pathname: '/personalInfo' });
     } else {
       router.push({ pathname: '/solution' });
     }

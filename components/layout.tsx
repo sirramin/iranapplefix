@@ -15,9 +15,11 @@ type Props = {
 export default function Layout({ children, title }: Props) {
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
-  const { isAuthenticated, mobile, token } = useAppSelector(state => state.auth)
+  const { isAuthenticated, mobile, token, firstname } = useAppSelector(state => state.auth)
   console.log("token", token);
   console.log("isAuthenticated", isAuthenticated);
+  console.log("firstname", firstname);
+
   const dispatch = useDispatch()
 
   const logOut = () => {
@@ -112,17 +114,17 @@ export default function Layout({ children, title }: Props) {
                 </Link>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-iphone">
-                <a className="ac-gn-link" href="#" data-analytics-title="iphone">
+                <a className="ac-gn-link" href="/device" data-analytics-title="iphone">
                   <span>آیفون</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-ipad">
-                <a className="ac-gn-link" href="#" data-analytics-title="ipad">
+                <a className="ac-gn-link" href="/device" data-analytics-title="ipad">
                   <span>آی‌مک</span>
                 </a>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-mac">
-                <a className="ac-gn-link" href="#" data-analytics-title="mac">
+                <a className="ac-gn-link" href="/device" data-analytics-title="mac">
                   <span>مک‌بوک</span>
                 </a>
               </li>
@@ -281,8 +283,9 @@ export default function Layout({ children, title }: Props) {
         <div className="main" data-env="live" data-edit-mode="false" role="main">
           {children}
         </div>
-        {/* <footer id="ac-globalfooter" className="js no-touch svg no-ie7 no-ie8" lang="en-US" data-analytics-region="global footer" role="contentinfo" aria-labelledby="ac-gf-label">
-          <div className="ac-gf-content">
+        <footer id="ac-globalfooter" className="js no-touch svg no-ie7 no-ie8" lang="en-US" data-analytics-region="global footer"
+          role="contentinfo" aria-labelledby="ac-gf-label">
+          {/* <div className="ac-gf-content">
             <h2 className="ac-gf-label" id="ac-gf-label">Apple Footer</h2>
             <nav className="ac-gf-breadcrumbs" aria-label="Breadcrumbs" role="navigation">
               <a href="https://www.apple.com" className="home ac-gf-breadcrumbs-home analytics-exitlink">
@@ -401,8 +404,24 @@ export default function Layout({ children, title }: Props) {
                   <a className="ac-gf-footer-legal-link" href="https://www.apple.com/sitemap/">Site Map</a>
                 </div>
               </div>
-            </section></div>
-        </footer> */}
+            </section>
+          </div> */}
+          <br />
+          <h2 style={{
+            textAlign: 'right',
+            fontSize: '17px'
+          }}>جهموری پاساژ چارسو طبقه منفی 1 واحد 61a</h2>
+          <h2 className='phone-contact'>
+            021-66172575
+          </h2>
+          <h2 className='phone-contact'>
+            021-66172484
+          </h2>
+          <h2 className='phone-contact'>
+            09961022975
+          </h2>
+          <br />
+        </footer>
         {/* 
                 <div className="snipcss-modal snipcss-micromodal-slide" id="modal-pick-resolution"></div>
                 <div className="edge_builder edge_builder_top" style={{top: 586px; left: 351px; height: 0px; width: 0px;}}></div>

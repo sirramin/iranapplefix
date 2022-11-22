@@ -3,7 +3,7 @@ import store from "../store/store";
 import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-const BaseURL = "https://api.iranapplefix.com/api/v1";
+const BaseURL = "http://162.55.9.142:7004/api/v1";
 
 const requestHelper = async (
   method: string,

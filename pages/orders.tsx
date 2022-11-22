@@ -9,49 +9,13 @@ import { updateName } from '../store/slices/authSlice'
 
 const Home: NextPage = () => {
 
+
+
   const router = useRouter()
   const dispatch = useDispatch()
 
-  const { firstname, lastname } = useAppSelector(state => state.auth)
-  const { previous } = useAppSelector(state => state.order)
+  const [address, setAddress] = useState('');
 
-  const [firstName, setFirstName] = useState(firstname);
-  const [lastName, setlastName] = useState(lastname);
-
-  const getUser = async () => {
-    const { firstname, lastname } = await RequestHelper('get', '/user');
-    setFirstName(firstname)
-    setlastName(lastname)
-  }
-
-  useEffect(() => {
-    getUser()
-  }, []);
-
-  const submit = async (event: React.SyntheticEvent) => {
-    event.preventDefault();
-    try {
-      console.log('firstName', firstName);
-      
-      console.log(typeof(firstName));
-      
-      dispatch(updateName({
-        firstname: firstName,
-        lastname: lastName
-      }))
-      await RequestHelper('patch', '/user', {
-        firstname: firstName,
-        lastname: lastName,
-      });
-      console.log('previous', previous);
-
-      if (previous === 'problem') {
-        router.push({ pathname: '/solution' });
-      } else {
-        router.push({ pathname: '/' });
-      }
-    } catch (err) { }
-  };
 
   return (
     <Layout title="اطلاعات شخصی">
@@ -61,12 +25,12 @@ const Home: NextPage = () => {
             <div id="stepEl" className="   ">
               <div className="signin fade-in" id="signin">
                 <h1 tabIndex={-1} className="si-container-title tk-label  ">
-                  نام و نام خانوادگی خود را وارد کنید
+                  سفارش های شما
                 </h1>
                 <form onSubmit={submit} >
-                  <div className="container si-field-container  password-second-step     ">
+                  <div className="container si-field-container  password-second-step" style={{ maxWidth: '528px' }}>
                     <div id="sign_in_form" className="signin-form  account-name-entered  fed-auth  password-entered   hide-password">
-                      <div className="si-field-container container">
+                      <div className="si-field-container container" style={{ maxWidth: '528px' }}>
                         <div className="form-table">
                           <div className="account-name form-row    ">
                             {/* <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label> */}
@@ -81,14 +45,14 @@ const Home: NextPage = () => {
                                   // aria-required="true" 
                                   // spellCheck="false"
                                   required
-                                  className="force-ltr form-textbox form-textbox-text personalInfo" placeholder="نام" aria-invalid="false"
-                                  value={firstName}
+                                  className="force-ltr form-textbox form-textbox-text personalInfo" placeholder="آدرس" aria-invalid="false"
+                                  value={address}
                                   onChange={
                                     (e) =>
-                                      setFirstName(e.target.value)
+                                      setAddress(e.target.value)
                                   }
                                 />
-                                <input type="text"
+                                {/* <input type="text"
                                   id="account_name_text_field"
                                   // can-field="accountName" 
                                   // autoComplete="off"
@@ -103,8 +67,12 @@ const Home: NextPage = () => {
                                     (e) =>
                                       setlastName(e.target.value)
                                   }
-                                />
-                                <button className='button-63'>ثبت</button>
+                                /> */}
+                                <button className='button-63' style={{
+                                  maxWidth: '300px',
+                                  marginLeft: 'auto',
+                                  marginRight: 'auto'
+                                }}>ثبت</button>
                               </div>
                             </div>
                           </div>

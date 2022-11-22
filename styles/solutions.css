@@ -13559,7 +13559,7 @@ html[dir="rtl"] .pricing-link {
     .form-selector-label
     .form-selector-left-col
     .device-image {
-    padding-right: 16px;
+    /* padding-right: 16px; */
     padding-left: 0px;
   }
 }

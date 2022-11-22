@@ -5,7 +5,7 @@ import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateSolution } from '../store/slices/orderSlice'
+import { updateSolution, updatePrevious } from '../store/slices/orderSlice'
 import { useAppSelector } from '../store/hooks'
 
 
@@ -14,6 +14,11 @@ const Home: NextPage = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const { deviceType, model, problem } = useAppSelector(state => state.order)
+  const { isAuthenticated, firstname, lastname } = useAppSelector(state => state.auth)
+
+  if (!isAuthenticated) {
+    router.push('/login')
+  }
 
   const selectSolution = async (solution: string) => {
     dispatch(updateSolution({
@@ -24,8 +29,18 @@ const Home: NextPage = () => {
       deviceType,
       model, 
       problem, 
-      "deliveryType": solution
+      "deliveryType": solution,
+      description: "test"
     });
+    dispatch(updatePrevious({
+      previous: '',
+    }))
+    if (solution === 'پیک') {
+      router.push('/address')
+    } else {
+      alert('درخواست شما با موفقیت ثبت شد')
+      router.push('/')
+    }
   };
 
   return (
