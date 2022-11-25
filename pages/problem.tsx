@@ -16,6 +16,7 @@ const Home: NextPage = () => {
   const { isAuthenticated, firstname, lastname } = useAppSelector(state => state.auth)
 
   const selectProblem = (problem: string) => {
+    console.log('problem2222', problem);
     dispatch(updateProblem({
       problem,
     }))
@@ -65,13 +66,13 @@ const Home: NextPage = () => {
                   </span>
                 </h2>
                 <div className="row">
-                  <ul role="list" className="row" id="allproducts">
+                  <ul className="row" >
                     {problems.map(problem =>
-                      <li role="listitem" className="form-selector column large-6 medium-6 small-12"
-                        onClick={() => { selectProblem(problem) }}
+                      <li key={problem} className="form-selector column large-6 medium-6 small-12"
+                      onClick={() => { selectProblem(problem) }}
                       >
-                        <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods" id="PFC7000" data-testid="signed-more-product-card">
-                          <label className="form-selector-label" htmlFor="PFC7000" id="label_PFC7000">
+                        <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods" data-testid="signed-more-product-card">
+                          <label className="form-selector-label" htmlFor="PFC7000">
                             <span className="row details-container problem-text">
                               <span className="form-selector-left-col">
                                 <span className="form-selector-title">

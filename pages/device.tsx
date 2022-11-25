@@ -5,22 +5,26 @@ import type { NextPage } from 'next'
 import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateDeviceType } from '../store/slices/orderSlice'
+import { updateDeviceType, updateModel } from '../store/slices/orderSlice'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 
 const Home: NextPage = () => {
 
   const router = useRouter()
   const dispatch = useDispatch()
-  const { deviceType } = useAppSelector(state => state.order)
+  const deviceType = useAppSelector(state => state.order.deviceType)
 
   const selectDevice = (type: string) => {
     dispatch(updateDeviceType({
       deviceType: type,
     }))
-    if (deviceType === 'iphone') {
+
+    if (type === 'iphone') {
       router.push({ pathname: '/models' });
     } else {
+      dispatch(updateModel({
+        model: '-',
+      }))
       router.push({ pathname: '/problem' });
     }
   };
@@ -42,7 +46,7 @@ const Home: NextPage = () => {
                     <li role="listitem" className="form-selector column large-6 medium-6 small-12"
                       onClick={() => { selectDevice('iphone') }}
                     >
-                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods" id="PFC7000" data-testid="signed-more-product-card">
+                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods"  data-testid="signed-more-product-card">
                         <label className="form-selector-label" htmlFor="PFC7000" id="label_PFC7000">
                           <span className="row details-container">
                             <span className="form-selector-left-col"                           >
@@ -59,7 +63,7 @@ const Home: NextPage = () => {
                     <li role="listitem" className="form-selector column large-6 medium-6 small-12"
                       onClick={() => { selectDevice('imac') }}
                     >
-                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirTag" id="PGF33001" data-testid="signed-more-product-card">
+                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirTag"  data-testid="signed-more-product-card">
                         <label className="form-selector-label" htmlFor="PGF33001" id="label_PGF33001">
                           <span className="row details-container">
                             <span className="form-selector-left-col">
@@ -68,7 +72,7 @@ const Home: NextPage = () => {
                               <span className="form-selector-title">
                                 iMac
                               </span>
-                         
+
                             </span>
                           </span>
                         </label>
@@ -77,7 +81,7 @@ const Home: NextPage = () => {
                     <li role="listitem" className="form-selector column large-6 medium-6 small-12"
                       onClick={() => { selectDevice('macbook') }}
                     >
-                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="App Store" id="PGF63003" data-testid="signed-more-product-card">
+                      <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="App Store" data-testid="signed-more-product-card">
                         <label className="form-selector-label" htmlFor="PGF63003" id="label_PGF63003">
                           <span className="row details-container">
                             <span className="form-selector-left-col">

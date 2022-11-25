@@ -13,18 +13,22 @@ const Home: NextPage = () => {
 
   const router = useRouter()
   const dispatch = useDispatch()
-  const { deviceType, model, problem } = useAppSelector(state => state.order)
   const { isAuthenticated, firstname, lastname } = useAppSelector(state => state.auth)
+  const { deviceType, model, problem } = useAppSelector(state => state.order)
+  console.log('deviceType, model, problem, solution', deviceType, model, problem)
 
   if (!isAuthenticated) {
     router.push('/login')
   }
 
+    useEffect(() => {
+    // fetchData()
+  }, [])
+
   const selectSolution = async (solution: string) => {
     dispatch(updateSolution({
       solution,
     }))
-    console.log('deviceType, model, problem, solution', deviceType, model, problem, solution)
     await RequestHelper('post', '/order', {
       deviceType,
       model, 
@@ -39,7 +43,7 @@ const Home: NextPage = () => {
       router.push('/address')
     } else {
       alert('درخواست شما با موفقیت ثبت شد')
-      router.push('/')
+      router.push('/orders')
     }
   };
 
