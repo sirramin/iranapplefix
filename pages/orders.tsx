@@ -9,13 +9,32 @@ import { updateName } from '../store/slices/authSlice'
 
 const Home: NextPage = () => {
 
-
-
   const router = useRouter()
   const dispatch = useDispatch()
 
-  const [address, setAddress] = useState('');
+  const [collection, setCollection] = useState([])
 
+  const fetchData = async () => {
+    try {
+      const results = await RequestHelper(
+        'get',
+        '/orders'
+      )
+      setCollection(results)
+    } catch (err) { }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  interface Item {
+    deviceType: boolean;
+    model: string | null;
+    deliveryType: string | null;
+    problem: string | null;
+    createdAt: Date | null;
+  }
 
   return (
     <Layout title="اطلاعات شخصی">
@@ -27,74 +46,59 @@ const Home: NextPage = () => {
                 <h1 tabIndex={-1} className="si-container-title tk-label  ">
                   سفارش های شما
                 </h1>
-                <form onSubmit={submit} >
-                  <div className="container si-field-container  password-second-step" style={{ maxWidth: '528px' }}>
-                    <div id="sign_in_form" className="signin-form  account-name-entered  fed-auth  password-entered   hide-password">
-                      <div className="si-field-container container" style={{ maxWidth: '528px' }}>
-                        <div className="form-table">
-                          <div className="account-name form-row    ">
-                            {/* <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label> */}
-                            <div className="form-cell">
-                              <div className=" form-cell-wrapper ">
-                                <input type="text"
-                                  id="account_name_text_field"
-                                  // can-field="accountName" 
-                                  // autoComplete="off"
-                                  // autoCorrect="off" 
-                                  // autoCapitalize="off" 
-                                  // aria-required="true" 
-                                  // spellCheck="false"
-                                  required
-                                  className="force-ltr form-textbox form-textbox-text personalInfo" placeholder="آدرس" aria-invalid="false"
-                                  value={address}
-                                  onChange={
-                                    (e) =>
-                                      setAddress(e.target.value)
-                                  }
-                                />
-                                {/* <input type="text"
-                                  id="account_name_text_field"
-                                  // can-field="accountName" 
-                                  // autoComplete="off"
-                                  // autoCorrect="off" 
-                                  // autoCapitalize="off" 
-                                  // aria-required="true" 
-                                  // spellCheck="false"
-                                  required
-                                  className="force-ltr form-textbox form-textbox-text personalInfo" placeholder="نام خانوادگی" aria-invalid="false"
-                                  value={lastName}
-                                  onChange={
-                                    (e) =>
-                                      setlastName(e.target.value)
-                                  }
-                                /> */}
-                                <button className='button-63' style={{
-                                  maxWidth: '300px',
-                                  marginLeft: 'auto',
-                                  marginRight: 'auto'
-                                }}>ثبت</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                <div className="orders-table">
+                  <div className="wrapper">
+
+                    <div className="table">
+
+                      <div className="row header">
+                        <span className="cell">
+                          نوع دستگاه
+                        </span>
+                        <span className="cell">
+                          مدل
+                        </span>
+                        <span className="cell">
+                          مشکل
+                        </span>
+                        <span className="cell">
+                          روش ارسال
+                        </span>
+                        <span className="cell">
+                          تاریخ
+                        </span>
                       </div>
+
+                      {collection.reverse().map((item: Item) => (
+                        <div className="row">
+                          <span className="cell" data-title="نوع دستگاه">
+                            {item.deviceType}
+                          </span>
+                          <span className="cell" data-title="مدل">
+                            {item.model}
+                          </span>
+                          <span className="cell" data-title="مشکل">
+                            {item.problem}
+                          </span>
+                          <span className="cell" data-title="روش ارسال">
+                            {item.deliveryType}
+                          </span>
+                          <span className="cell" data-title="تاریخ">
+                            {new Intl.DateTimeFormat('fa-IR',
+                              {
+                                dateStyle: 'short', timeStyle: 'short'
+                              }
+                            ).format(
+                              new Date(item.createdAt)
+                            )}
+                          </span>
+                        </div>
+                      ))}
+
                     </div>
-
-                    <div className="spinner-container auth  hide "></div>
-                    {/* <button id="sign-in" tabIndex={0} className="si-button btn  fed-ui   fed-ui-animation-show      remember-me  " aria-label="Continue" aria-disabled="false">
-                      <i className="shared-icon icon_sign_in"></i>
-                      <span className="text feat-split">
-                        Continue
-
-                      </span>
-                    </button> */}
-                    <button id="sign-in-cancel" aria-disabled="false" tabIndex={0} className="si-button btn secondary feat-split  remember-me   link " aria-label="Close">
-                      <span className="text">                      Close
-
-                      </span>
-                    </button>
                   </div>
-                </form>
+
+                </div>
               </div>
             </div >
           </div >

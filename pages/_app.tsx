@@ -13,6 +13,7 @@ import '../styles/apple-care.css'
 // import '../styles/device.css'
 import '../styles/order.css'
 import '../styles/solutions.css'
+import '../styles/table.css'
 
 
 import { Provider } from 'react-redux'

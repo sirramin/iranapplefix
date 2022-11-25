@@ -48,10 +48,10 @@ const Home: NextPage = () => {
                     <div id="sign_in_form" className="signin-form  account-name-entered  fed-auth  password-entered   hide-password">
                       <div className="si-field-container container" style={{ maxWidth: '528px' }}>
                         <div className="form-table">
-                          <div className="account-name form-row    ">
+                          <div className="account-name form-row">
                             {/* <label className="sr-only form-cell form-label" htmlFor="account_name_text_field">Sign In with your Apple&nbsp;ID</label> */}
                             <div className="form-cell">
-                              <div className=" form-cell-wrapper ">
+                              <div className=" form-cell-wrapper">
                                 <input type="text"
                                   id="account_name_text_field"
                                   // can-field="accountName" 

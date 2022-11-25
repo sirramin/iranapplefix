@@ -16,9 +16,9 @@ export default function Layout({ children, title }: Props) {
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
   const { isAuthenticated, mobile, token, firstname } = useAppSelector(state => state.auth)
-  console.log("token", token);
-  console.log("isAuthenticated", isAuthenticated);
-  console.log("firstname", firstname);
+  // console.log("token", token);
+  // console.log("isAuthenticated", isAuthenticated);
+  // console.log("firstname", firstname);
 
   const dispatch = useDispatch()
 
@@ -139,11 +139,11 @@ export default function Layout({ children, title }: Props) {
                 </a>
               </li>
 
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-watch">
+              {/* <li className="ac-gn-item ac-gn-item-menu ac-gn-watch">
                 <a className="ac-gn-link" href="#" data-analytics-title="watch">
                   <span>وبلاگ</span>
                 </a>
-              </li>
+              </li> */}
               {/* <li className="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
                 <a id="ac-gn-link-search" className="ac-gn-link ac-gn-link-search" href="/kb/index?page=search&amp;locale=en_US" data-analytics-title="search" data-analytics-intrapage-link="" aria-label="Search Support" role="button" aria-haspopup="true" data-analytics-listener-added="true"></a>
               </li> */}
@@ -237,18 +237,9 @@ export default function Layout({ children, title }: Props) {
                 </p>
                 <nav className="ac-gn-bagview-nav">
                   <ul className="ac-gn-bagview-nav-list ac-gn-bagview-nav-nobtn">
-                    {/* <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-bag">
-                      <a href="https://www.apple.com/shop/bag" data-evar1="[pageName] | global nav | bag" data-analytics-activitymap-link-id="bag" data-analytics-title="bag" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-bag" data-ac-autom="gn-bagview-link-bag">
-                        Bag
-                      </a>
-                    </li>
-                    <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-savedbyyou">
-                      <a href="https://www.apple.com/shop/saveditems" data-evar1="[pageName] | global nav | saved items" data-analytics-activitymap-link-id="saved items" data-analytics-title="saved items" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-savedbyyou" data-ac-autom="gn-bagview-link-savedbyyou">
-                        Saved Items
-                      </a>
-                    </li> */}
                     <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-orders">
-                      <a href="https://secure5.store.apple.com/shop/order/list" data-evar1="[pageName] | global nav | orders" data-analytics-activitymap-link-id="orders" data-analytics-title="orders" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders" data-ac-autom="gn-bagview-link-orders">
+                      <a href="/orders"
+                       className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders">
                         سفارش‌ها
                       </a>
                     </li>

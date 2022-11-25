@@ -6,18 +6,23 @@ import Layout from '../components/layout'
 import RequestHelper from '../utils/requestHelper'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateDeviceType } from '../store/slices/orderSlice'
-
+import { useAppSelector, useAppDispatch } from '../store/hooks'
 
 const Home: NextPage = () => {
 
   const router = useRouter()
   const dispatch = useDispatch()
+  const { deviceType } = useAppSelector(state => state.order)
 
   const selectDevice = (type: string) => {
     dispatch(updateDeviceType({
       deviceType: type,
     }))
-    router.push({ pathname: '/models' });
+    if (deviceType === 'iphone') {
+      router.push({ pathname: '/models' });
+    } else {
+      router.push({ pathname: '/problem' });
+    }
   };
 
   return (
