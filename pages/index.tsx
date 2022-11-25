@@ -5,9 +5,10 @@ import pspBannerHeroLarge from '/images/psp-banner-hero-repair.image.large_2x.jp
 import pspBannerHeroSmall from '/images/psp-banner-hero-repair.image.small_2x.jpg'
 
 // import store from "../store/store";
-import { useSelector, useDispatch } from 'react-redux'
-import { useAppSelector, useAppDispatch } from '../store/hooks'
-import { login, logout } from '../store/slices/authSlice'
+// import { useSelector, useDispatch } from 'react-redux'
+// import { useAppSelector, useAppDispatch } from '../store/hooks'
+// import { login, logout } from '../store/slices/authSlice'
+import Link from 'next/link'
 
 const Home: NextPage = () => {  
   const whatsappText = 'سلام برای تعمیرات از سایت ایران اپل فیکس پیام میدم';
@@ -86,14 +87,19 @@ const Home: NextPage = () => {
           </div>
           <div className="as-navLink-wrapper as-navLink--button as-navLink--light">
             <div className="as-navLink-inner ">
-              <a className="as-navLink button" href="/device">ثبت درخواست تعمیر</a></div>
+          <Link href="/device" >
+              <a className="as-navLink button">ثبت درخواست تعمیر</a>
+          </Link>
+              </div>
           </div>
           <div className="as-navLink-wrapper as-navLink--icon">
             <div className="as-navLink-inner ">
-              <a className="as-navLink " href="/orders" >
+          <Link href="/orders" >
+              <a className="as-navLink ">
                 <span className="icon icon-chevronright" aria-hidden="true"></span>
                 <span className="as-navlink-text">مشاهده وضعیت سفارش</span>
               </a>
+          </Link>
             </div>
           </div>
           <div className="divider divider--fullwidth">

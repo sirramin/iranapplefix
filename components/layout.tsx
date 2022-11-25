@@ -114,24 +114,32 @@ export default function Layout({ children, title }: Props) {
                 </Link>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-iphone">
-                <a className="ac-gn-link" href="/device" data-analytics-title="iphone">
-                  <span>آیفون</span>
-                </a>
+                <Link href="/device" >
+                  <a className="ac-gn-link" data-analytics-title="iphone">
+                    <span>آیفون</span>
+                  </a>
+                </Link>
               </li>
-              <li className="ac-gn-item ac-gn-item-menu ac-gn-ipad">
-                <a className="ac-gn-link" href="/device" data-analytics-title="ipad">
-                  <span>آی‌مک</span>
-                </a>
+              <li className="ac-gn-item ac-gn-item-menu ac-gn-ipad">ّ
+                <Link href="/device" >
+                  <a className="ac-gn-link" data-analytics-title="ipad">
+                    <span>آی‌مک</span>
+                  </a>
+                </Link>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-mac">
-                <a className="ac-gn-link" href="/device" data-analytics-title="mac">
-                  <span>مک‌بوک</span>
-                </a>
+                <Link href="/device" >
+                  <a className="ac-gn-link" data-analytics-title="mac">
+                    <span>مک‌بوک</span>
+                  </a>
+                </Link>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-support">
-                <a className="ac-gn-link" href="/device">
-                  <span>درخواست تعمیر</span>
-                </a>
+                <Link href="/device" >
+                  <a className="ac-gn-link" >
+                    <span>درخواست تعمیر</span>
+                  </a>
+                </Link>
               </li>
               <li className="ac-gn-item ac-gn-item-menu ac-gn-accessories">
                 <a className="ac-gn-link" href="https://iranapplestore.com">
@@ -238,10 +246,11 @@ export default function Layout({ children, title }: Props) {
                 <nav className="ac-gn-bagview-nav">
                   <ul className="ac-gn-bagview-nav-list ac-gn-bagview-nav-nobtn">
                     <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-orders">
-                      <a href="/orders"
-                       className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders">
-                        سفارش‌ها
-                      </a>
+                      <Link href="/orders" >
+                        <a className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders">
+                          سفارش‌ها
+                        </a>
+                      </Link>
                     </li>
                     {/* <li className="ac-gn-bagview-nav-item ac-gn-bagview-nav-item-account">
                       <a href="https://secure5.store.apple.com/shop/account/home" data-evar1="[pageName] | global nav | account" data-analytics-activitymap-link-id="account" data-analytics-title="account" data-analytics-region="global nav" className="ac-gn-bagview-nav-link ac-gn-bagview-nav-link-account" data-ac-autom="gn-bagview-link-account">
