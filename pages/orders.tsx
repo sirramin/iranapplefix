@@ -29,6 +29,7 @@ const Home: NextPage = () => {
   }, [])
 
   interface Item {
+    _id: string;
     deviceType: boolean;
     model: string | null;
     deliveryType: string | null;
@@ -70,7 +71,7 @@ const Home: NextPage = () => {
                       </div>
 
                       {collection.reverse().map((item: Item) => (
-                        <div className="row">
+                        <div className="row" key={item._id}>
                           <span className="cell" data-title="نوع دستگاه">
                             {item.deviceType}
                           </span>

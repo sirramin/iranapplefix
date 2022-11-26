@@ -71,11 +71,11 @@ const Home: NextPage = () => {
                 <div className="row">
                   <ul role="list" className="row" id="allproducts">
                     {models.reverse().map(model =>
-                      <li role="listitem" className="form-selector column large-6 medium-6 small-12"
+                      <li key={model} role="listitem" className="form-selector column large-6 medium-6 small-12"
                         onClick={() => { selectModel(model) }}
                       >
                         <button className="signed-more-product-card column large-12 medium-12 small-12" aria-label="AirPods" data-testid="signed-more-product-card">
-                          <label className="form-selector-label" htmlFor="PFC7000" id="label_PFC7000">
+                          <label className="form-selector-label" htmlFor="PFC7000" >
                             <span className="row details-container">
                               <span className="form-selector-left-col"                           >
                                 {/* <img className="device-image" width="42" height="42"
