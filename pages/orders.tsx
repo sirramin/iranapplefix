@@ -34,7 +34,7 @@ const Home: NextPage = () => {
     model: string | null;
     deliveryType: string | null;
     problem: string | null;
-    createdAt: Date | null;
+    createdAt: string | number | Date;
   }
 
   return (

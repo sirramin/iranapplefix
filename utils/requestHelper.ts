@@ -38,7 +38,7 @@ const requestHelper = async (
       params,
     });
     return result;
-  } catch (err) {
+  } catch (err: any) {
     // console.log("request helper error", err?.response?.data?.error);
     let errorMessage = "خطایی رخ داد";
     errorMessage = err?.response?.data?.error;

@@ -3,18 +3,18 @@ import type { RootState } from "../store";
 
 interface AuthState {
   isAuthenticated: boolean;
-  mobile: string | null;
-  firstname: string | null;
-  lastname: string | null;
+  mobile: string;
+  firstname: string;
+  lastname: string;
   token: string | null;
   comeFromOrder: boolean;
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
-  mobile: null,
-  firstname: null,
-  lastname: null,
+  mobile: "",
+  firstname: "",
+  lastname: "",
   token: null,
   comeFromOrder: false,
 };
@@ -30,9 +30,9 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.isAuthenticated = false;
-      state.mobile = null;
-      state.firstname = null;
-      state.lastname = null;
+      state.mobile = "";
+      state.firstname = "";
+      state.lastname = "";
       state.token = null;
     },
     updateName: (state, action: PayloadAction<any>) => {
